@@ -22,10 +22,6 @@ public class Regiao {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getRegiao() {
         return regiao;
     }
