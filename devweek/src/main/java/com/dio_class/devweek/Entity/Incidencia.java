@@ -13,11 +13,11 @@ public class Incidencia {
     private Long Faixa_id;
     private Integer Qnt_exames;
 
-    public Incidencia(Integer regiao_id, Integer mes, Long faixa_id, Integer qnt_exames) {
-        Regiao_id = regiao_id;
-        Mes = mes;
-        Faixa_id = faixa_id;
-        Qnt_exames = qnt_exames;
+    public Incidencia(Integer regiaoid, Integer mes, Long faixaid, Integer qntexames) {
+        this.Regiao_id = regiaoid;
+        this.Mes = mes;
+        this.Faixa_id = faixaid;
+        this.Qnt_exames = qntexames;
     }
 
     public Incidencia() {
