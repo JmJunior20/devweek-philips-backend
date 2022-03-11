@@ -2,7 +2,7 @@ package com.dio_class.devweek.Entity;
 import javax.persistence.*;
 
 @Entity
-public class Incidencia {
+public class IncidenciaExame {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -13,14 +13,14 @@ public class Incidencia {
     private Long Faixa_id;
     private Integer Qnt_exames;
 
-    public Incidencia(Integer regiaoid, Integer mes, Long faixaid, Integer qntexames) {
+    public IncidenciaExame(Integer regiaoid, Integer mes, Long faixaid, Integer qntexames) {
         this.Regiao_id = regiaoid;
         this.Mes = mes;
         this.Faixa_id = faixaid;
         this.Qnt_exames = qntexames;
     }
 
-    public Incidencia() {
+    public IncidenciaExame() {
     }
 
     public Long getId() {

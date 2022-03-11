@@ -3,20 +3,18 @@ import javax.persistence.*;
 
 @Entity
 public class Regiao {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(nullable = false)
+    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(nullable = false, updatable = false)
     private Long id;
     private String regiao;
-    private Integer qnt_exames;
+    private Integer total_exames;
 
-    public Regiao(String regiao, Integer qntexames) {
+    public Regiao(String regiao, Integer total) {
         this.regiao = regiao;
-        this.qnt_exames = qntexames;
+        this.total_exames = total;
     }
 
-    public Regiao() {
-    }
+    public Regiao() {}
 
     public Long getId() {
         return id;
@@ -30,11 +28,11 @@ public class Regiao {
         this.regiao = regiao;
     }
 
-    public Integer getQnt_exames() {
-        return qnt_exames;
+    public Integer getTotal() {
+        return total_exames;
     }
 
-    public void setQnt_exames(Integer qnt_exames) {
-        this.qnt_exames = qnt_exames;
+    public void setTotal(Integer total) {
+        this.total_exames = total;
     }
 }

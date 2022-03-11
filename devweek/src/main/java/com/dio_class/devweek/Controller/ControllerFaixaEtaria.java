@@ -49,7 +49,7 @@ public class ControllerFaixaEtaria {
         return frepository.save(newFaixa);
     }
 
-    @DeleteMapping("/faixaertaria/remover/{id}")
+    @DeleteMapping("/faixaetaria/remover/{id}")
     public void deleteFaixaEtaria(@PathVariable long id){
         frepository.deleteById(id);
     }
