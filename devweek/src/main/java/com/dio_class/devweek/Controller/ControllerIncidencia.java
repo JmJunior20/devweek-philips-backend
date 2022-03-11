@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/api")
 public class ControllerIncidencia {
     private final IncidenciaRepo ocRepository;
 
@@ -20,24 +21,19 @@ public class ControllerIncidencia {
 
     @GetMapping("/incidencia")
     public ResponseEntity<List<Incidencia>> finIncidencia(){
-        List<Incidencia> listaOcorrencia = ocRepository.findAll();
-        if (listaOcorrencia.isEmpty())
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        return new ResponseEntity<>(listaOcorrencia, HttpStatus.OK);
+        List<Incidencia> listaIncidencia = ocRepository.findAll();
+        if (listaIncidencia.isEmpty())
+            return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
+        return new ResponseEntity<>(listaIncidencia, HttpStatus.OK);
     }
 
     @GetMapping("/incidencia/{id}")
-    public ResponseEntity<Incidencia> findOcorrenciaById(@PathVariable Long id){
-        Optional<Incidencia> ocorrenciaOptional = ocRepository.findById(id);
-        if (ocorrenciaOptional.isPresent()){
-            Incidencia ocorrenciaUnid = ocorrenciaOptional.get();
-            return new ResponseEntity<>(ocorrenciaUnid, HttpStatus.OK);
+    public ResponseEntity<Incidencia> findIncidenciaById(@PathVariable Long id){
+        Optional<Incidencia> incidenciaOptional = ocRepository.findById(id);
+        if (incidenciaOptional.isPresent()){
+            Incidencia incidenciaUnid = incidenciaOptional.get();
+            return new ResponseEntity<>(incidenciaUnid, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
-
-    @PostMapping("/incidencia/novo")
-    public Incidencia newIncidencia(@RequestBody Incidencia newIncidencia){
-        return ocRepository.save(newIncidencia);
     }
 }

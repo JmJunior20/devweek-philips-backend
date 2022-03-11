@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/api")
 public class ControllerFaixaEtaria {
 
     private FaixaEtariaRepo frepository;
@@ -30,7 +31,7 @@ public class ControllerFaixaEtaria {
     }
 
     @GetMapping("/faixaetaria/{id}")
-    public ResponseEntity<?> findByIdFaixaEtaria(@PathVariable long id){
+    public ResponseEntity<FaixaEtaria> findByIdFaixaEtaria(@PathVariable Long id){
         try{
             Optional<FaixaEtaria> unidOptional = frepository.findById(id);
             if (unidOptional.isPresent()){
